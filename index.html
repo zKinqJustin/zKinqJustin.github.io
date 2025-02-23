@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spieler Stats Checker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="nav-button" onclick="showStatsChecker()"><i class="fas fa-gamepad"></i> Stats Checker</button>
+        <button class="nav-button" onclick="showGuildsList()" style="margin-left: 20px;"><i class="fas fa-users"></i> Gilden</button>
+    </nav>
+    
+    <div class="container">
+        <div id="main-view">
+            <div class="header">
+                <h1><i class="fas fa-gamepad"></i> Spieler Stats Checker</h1>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="playerName" placeholder="Spielername eingeben..." autocomplete="off">
+                    <button onclick="checkBalance()">Suchen</button>
+                </div>
+            </div>
+            <div id="result" class="result-container">
+                <!-- Player stats will be inserted here -->
+            </div>
+        </div>
+        
+        <div id="guilds-view" class="guilds-view" style="display: none;">
+            <div class="header">
+                <h1><i class="fas fa-users"></i> Alle Gilden</h1>
+            </div>
+            <div class="guilds-grid">
+                <!-- Guilds will be inserted here -->
+            </div>
+        </div>
+
+        <div id="guild-details-view" class="guild-details-view" style="display: none;">
+            <!-- Guild details will be inserted here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

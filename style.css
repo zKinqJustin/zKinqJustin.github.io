@@ -1,0 +1,443 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    padding-top: 60px;
+}
+
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #2d2d2d;
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-button {
+    background-color: transparent;
+    color: #00ff9d;
+    border: 2px solid #00ff9d;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #00ff9d;
+    color: #1a1a1a;
+    transform: translateY(0);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+}
+
+.container {
+    background-color: #2d2d2d;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    min-height: calc(100vh - 100px);
+}
+
+.guilds-view {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.guilds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.guild-preview-card {
+    background-color: #3d3d3d;
+    border-radius: 10px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-left: 4px solid #00ff9d;
+}
+
+.guild-preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 157, 0.2);
+}
+
+.guild-preview-name {
+    color: #00ff9d;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.guild-preview-info {
+    display: grid;
+    gap: 0.5rem;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.guild-preview-info span {
+    color: #fff;
+    margin-left: 5px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: #00ff9d;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+}
+
+.search-container {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 25px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.search-icon {
+    color: #666;
+    margin-right: 10px;
+}
+
+#playerName {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box button {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background: #357abd;
+}
+
+.result-container {
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: none;
+    background-color: #3d3d3d;
+    margin-top: 2rem;
+}
+
+.result-container.success {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.player-skin {
+    text-align: center;
+}
+
+.player-skin img {
+    width: 128px;
+    height: 256px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.player-info {
+    display: grid;
+    gap: 1rem;
+}
+
+.stat-card {
+    background-color: #4d4d4d;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #00ff9d;
+    position: relative;
+}
+
+.guild-card {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.guild-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.guild-name {
+    font-size: 1.5em;
+    margin: 0 0 15px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.guild-info {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.guild-info p {
+    margin: 8px 0;
+    color: #ddd;
+}
+
+.guild-info i {
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
+}
+
+.view-guild-btn {
+    width: 100%;
+    padding: 10px;
+    background: #4a90e2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 1em;
+}
+
+.view-guild-btn:hover {
+    background: #357abd;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.error {
+    text-align: center;
+    padding: 20px;
+    color: #ff6b6b;
+    font-size: 1.2em;
+}
+
+.click-info {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 0.8rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-button {
+    margin-bottom: 1rem;
+    background-color: #4d4d4d;
+    color: #fff;
+}
+
+.back-button:hover {
+    background-color: #5d5d5d;
+}
+
+.guild-header {
+    margin-bottom: 2rem;
+}
+
+.guild-header h2 {
+    color: #00ff9d;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.guild-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.members-container h3 {
+    color: #00ff9d;
+    margin-bottom: 1rem;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.member-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #4d4d4d;
+    padding: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.member-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.member-card img {
+    border-radius: 4px;
+}
+
+.member-info {
+    flex: 1;
+}
+
+.member-name {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.member-rank {
+    color: #00ff9d;
+    font-size: 0.9rem;
+}
+
+.stat-label {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.result-container.error {
+    display: block;
+    background-color: #3d3d3d;
+    border-left: 4px solid #ff4444;
+    color: #ff4444;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.guild-details-view {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.guild-details {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.guild-details h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.guild-details h3 {
+    color: #fff;
+    margin: 20px 0;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.member-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.member-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.member-card img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-name {
+    color: #fff;
+    font-weight: 500;
+}
+
+.member-rank {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
